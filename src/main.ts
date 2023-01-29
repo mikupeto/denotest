@@ -13,7 +13,7 @@ if (!isVaildUser) {
 const handler = async (req: Request): Promise<Response> => {
   if (!isVaildUser) {
     const index401 = await Deno.readFile(
-      `${Deno.cwd()}/apps/deno-vless/src/deno/401.html`
+      `${Deno.cwd()}/src/deno/401.html`
     );
     return new Response(index401, {
       status: 401,

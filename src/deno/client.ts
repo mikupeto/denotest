@@ -6,7 +6,7 @@ async function serveClient(req: Request, basePath: string) {
   const pathname = new URL(req.url).pathname;
   if (pathname.startsWith('/assets')) {
     const resp = await serveDir(req, {
-      fsRoot: `${Deno.cwd()}/apps/deno-vless/src/client`,
+      fsRoot: `${Deno.cwd()}/src/client`,
     });
     resp.headers.set('cache-control', 'public, max-age=2592000');
     return resp;
@@ -14,7 +14,7 @@ async function serveClient(req: Request, basePath: string) {
   if (pathname.includes(basePath)) {
     return await serveFile(
       req,
-      `${Deno.cwd()}/apps/deno-vless/src/client/index.html`
+      `${Deno.cwd()}/src/client/index.html`
     );
   }
   const basicAuth = req.headers.get('Authorization') || '';

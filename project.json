@@ -1,7 +1,7 @@
 {
   "name": "deno-vless",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/deno-vless/src",
+  "sourceRoot": "src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "apps/deno-vless/src/client"
+        "outputPath": "src/client"
       },
       "configurations": {
         "development": {},
@@ -36,7 +36,7 @@
     "serve-deno": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "deno run --allow-net --allow-read --allow-write --allow-env --watch apps/deno-vless/src/main.ts"
+        "command": "deno run --allow-net --allow-read --allow-write --allow-env --watch src/main.ts"
       }
     },
     "test": {
@@ -50,7 +50,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/deno-vless/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
